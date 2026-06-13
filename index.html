@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#111827" />
   <title>自作AIチャット</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;background:#f4f4f5;color:#222}.app{max-width:720px;height:100dvh;margin:0 auto;display:flex;flex-direction:column;background:#fff;border-left:1px solid #ddd;border-right:1px solid #ddd}header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid #ddd;background:#fafafa}.title{font-weight:800;font-size:18px;white-space:nowrap}.header-buttons{display:flex;gap:8px;align-items:center;min-width:0;flex-wrap:wrap;justify-content:flex-end}select,button,textarea,input{font:inherit}.model-select,.room-select{min-height:44px;padding:7px 9px;border:1px solid #d1d5db;border-radius:999px;background:#fff;color:#111827;font-size:13px;font-weight:700}.room-select{max-width:150px}.model-select{max-width:170px}.small-button{width:auto;min-height:44px;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px;font-weight:700;white-space:nowrap}.settings{padding:10px 14px;border-bottom:1px solid #ddd;background:#fafafa}.settings summary{font-weight:800;cursor:pointer;user-select:none}.settings-block{margin-top:12px}.settings-label{margin-bottom:6px;font-size:13px;font-weight:800;color:#374151}.settings-row{display:flex;gap:8px;align-items:flex-start}.text-input{width:100%;min-height:44px;padding:10px;border:1px solid #ccc;border-radius:12px;background:#fff}#personaInput,#userProfileInput{width:100%;min-height:110px;max-height:240px;resize:vertical;padding:10px;border:1px solid #ccc;border-radius:12px;line-height:1.5;background:#fff}#userProfileInput{min-height:90px}#chat{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}.message-row{display:flex;gap:8px;max-width:92%;align-items:flex-end}.message-row.user-row{align-self:flex-end;flex-direction:row-reverse}.message-row.ai-row{align-self:flex-start}.speaker{width:42px;flex:0 0 42px;text-align:center;color:#6b7280;font-size:11px;line-height:1.2;overflow:hidden}.speaker-icon{display:block;font-size:22px;line-height:1.1}.speaker-name{display:block;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.message{max-width:100%;padding:10px 12px;border-radius:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word;font-size:16px}.user{background:#dbeafe;border-bottom-right-radius:4px}.ai{background:#f1f5f9;border-bottom-left-radius:4px}.error{background:#fee2e2;border-bottom-left-radius:4px}.model-meta{margin-top:8px;font-size:12px;color:#6b7280}.input-area{display:flex;gap:8px;padding:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom));border-top:1px solid #ddd;background:#fafafa}#input{flex:1;resize:none;min-height:44px;max-height:140px;padding:10px;border:1px solid #ccc;border-radius:12px;line-height:1.5;background:#fff}button{width:72px;min-height:44px;border:none;border-radius:12px;background:#111827;color:white;font-weight:800;touch-action:manipulation}button:disabled{opacity:.5}.token-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(17,24,39,.55)}.token-modal.open{display:flex}.token-card{width:min(420px,100%);padding:18px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.25)}.token-title{margin-bottom:8px;font-weight:900;font-size:18px}.token-note{margin-bottom:12px;color:#4b5563;font-size:14px;line-height:1.6}#tokenInput{width:100%;min-height:44px;padding:10px;border:1px solid #ccc;border-radius:12px;margin-bottom:10px}.token-actions{display:flex;gap:8px;justify-content:flex-end}.screenshot-mode header,.screenshot-mode .settings,.screenshot-mode .input-area{display:none}.screenshot-mode .app{height:100dvh;border:none;max-width:none}.screenshot-mode #chat{padding:18px}.screenshot-mode .model-meta{display:none}@media(max-width:520px){header{align-items:stretch;flex-direction:column}.header-buttons{justify-content:space-between}.room-select,.model-select{max-width:none;flex:1}.settings-row{flex-direction:column}.settings-row .small-button{width:100%}.message-row{max-width:100%}.speaker{width:38px;flex-basis:38px}}
+    *{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Hiragino Sans","Yu Gothic",sans-serif;background:#f4f4f5;color:#222}.app{max-width:720px;height:100dvh;margin:0 auto;display:flex;flex-direction:column;background:#fff;border-left:1px solid #ddd;border-right:1px solid #ddd}header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-bottom:1px solid #ddd;background:#fafafa}.title{font-weight:800;font-size:18px;white-space:nowrap}.header-buttons{display:flex;gap:8px;align-items:center;min-width:0;flex-wrap:wrap;justify-content:flex-end}select,button,textarea,input{font:inherit}.model-select,.room-select{min-height:44px;padding:7px 9px;border:1px solid #d1d5db;border-radius:999px;background:#fff;color:#111827;font-size:13px;font-weight:700}.room-select{max-width:150px}.model-select{max-width:170px}.small-button{width:auto;min-height:44px;padding:7px 10px;border-radius:999px;background:#e5e7eb;color:#111827;font-size:13px;font-weight:700;white-space:nowrap}.settings{padding:10px 14px;border-bottom:1px solid #ddd;background:#fafafa}.settings summary{font-weight:800;cursor:pointer;user-select:none}.settings-block{margin-top:12px}.settings-label{margin-bottom:6px;font-size:13px;font-weight:800;color:#374151}.settings-row{display:flex;gap:8px;align-items:flex-start}.text-input{width:100%;min-height:44px;padding:10px;border:1px solid #ccc;border-radius:12px;background:#fff}#personaInput,#userProfileInput{width:100%;min-height:110px;max-height:240px;resize:vertical;padding:10px;border:1px solid #ccc;border-radius:12px;line-height:1.5;background:#fff}#userProfileInput{min-height:90px}#chat{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px}.message-row{display:flex;gap:8px;max-width:92%;align-items:flex-end}.message-row.user-row{align-self:flex-end;flex-direction:row-reverse}.message-row.ai-row{align-self:flex-start}.speaker{width:42px;flex:0 0 42px;text-align:center;color:#6b7280;font-size:11px;line-height:1.2;overflow:hidden}.speaker-icon{display:block;font-size:22px;line-height:1.1}.speaker-name{display:block;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.message{max-width:100%;padding:10px 12px;border-radius:14px;line-height:1.6;white-space:pre-wrap;word-break:break-word;font-size:16px}.system-message{align-self:center;max-width:90%;padding:8px 12px;border-radius:999px;background:#f3f4f6;color:#6b7280;font-size:13px;line-height:1.4}.user{background:#dbeafe;border-bottom-right-radius:4px}.ai{background:#f1f5f9;border-bottom-left-radius:4px}.error{background:#fee2e2;border-bottom-left-radius:4px}.model-meta{margin-top:8px;font-size:12px;color:#6b7280}.input-area{display:flex;gap:8px;padding:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom));border-top:1px solid #ddd;background:#fafafa}#input{flex:1;resize:none;min-height:44px;max-height:140px;padding:10px;border:1px solid #ccc;border-radius:12px;line-height:1.5;background:#fff}button{width:72px;min-height:44px;border:none;border-radius:12px;background:#111827;color:white;font-weight:800;touch-action:manipulation}button:disabled{opacity:.5}.token-modal{position:fixed;inset:0;z-index:1000;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(17,24,39,.55)}.token-modal.open{display:flex}.token-card{width:min(420px,100%);padding:18px;border-radius:18px;background:#fff;box-shadow:0 18px 40px rgba(0,0,0,.25)}.token-title{margin-bottom:8px;font-weight:900;font-size:18px}.token-note{margin-bottom:12px;color:#4b5563;font-size:14px;line-height:1.6}#tokenInput{width:100%;min-height:44px;padding:10px;border:1px solid #ccc;border-radius:12px;margin-bottom:10px}.token-actions{display:flex;gap:8px;justify-content:flex-end}.screenshot-mode header,.screenshot-mode .settings,.screenshot-mode .input-area{display:none}.screenshot-mode .app{height:100dvh;border:none;max-width:none}.screenshot-mode #chat{padding:18px}.screenshot-mode .model-meta{display:none}@media(max-width:520px){header{align-items:stretch;flex-direction:column}.header-buttons{justify-content:space-between}.room-select,.model-select{max-width:none;flex:1}.settings-row{flex-direction:column}.settings-row .small-button{width:100%}.message-row{max-width:100%}.speaker{width:38px;flex-basis:38px}}
   </style>
 </head>
 <body>
@@ -33,55 +33,25 @@
 
     <details class="settings">
       <summary>設定：<span id="activeRoomLabel"></span></summary>
-      <div class="settings-block">
-        <div class="settings-label">ルーム名</div>
-        <div class="settings-row">
-          <input id="roomNameInput" class="text-input" type="text" />
-          <input id="roomIconInput" class="text-input" type="text" maxlength="4" />
-          <button id="saveRoomSettings" class="small-button" type="button">保存</button>
-        </div>
-      </div>
-      <div class="settings-block">
-        <div class="settings-label">AIへの指示</div>
-        <div class="settings-row">
-          <textarea id="personaInput" placeholder="AIへの指示を書く"></textarea>
-          <button id="resetPersona" class="small-button" type="button">初期指示に戻す</button>
-        </div>
-      </div>
-      <div class="settings-block">
-        <div class="settings-label">自分の設定</div>
-        <textarea id="userProfileInput" placeholder="このルームでAIに渡す自分の設定を書く"></textarea>
-      </div>
+      <div class="settings-block"><div class="settings-label">ルーム名</div><div class="settings-row"><input id="roomNameInput" class="text-input" type="text" /><input id="roomIconInput" class="text-input" type="text" maxlength="4" /><button id="saveRoomSettings" class="small-button" type="button">保存</button></div></div>
+      <div class="settings-block"><div class="settings-label">AIへの指示</div><div class="settings-row"><textarea id="personaInput" placeholder="AIへの指示を書く"></textarea><button id="resetPersona" class="small-button" type="button">初期指示に戻す</button></div></div>
+      <div class="settings-block"><div class="settings-label">自分の設定</div><textarea id="userProfileInput" placeholder="このルームでAIに渡す自分の設定を書く"></textarea></div>
     </details>
 
     <main id="chat"></main>
-
-    <form id="form" class="input-area">
-      <textarea id="input" placeholder="メッセージを入力"></textarea>
-      <button id="send" type="submit">送信</button>
-    </form>
+    <form id="form" class="input-area"><textarea id="input" placeholder="メッセージを入力"></textarea><button id="send" type="submit">送信</button></form>
   </div>
 
-  <div id="tokenModal" class="token-modal">
-    <div class="token-card">
-      <div class="token-title">合言葉</div>
-      <div class="token-note">Cloudflare WorkerのAPP_TOKENを入力。この端末のlocalStorageに保存される。</div>
-      <input id="tokenInput" type="password" placeholder="APP_TOKEN" />
-      <div class="token-actions"><button id="saveToken" class="small-button" type="button">保存</button></div>
-    </div>
-  </div>
+  <div id="tokenModal" class="token-modal"><div class="token-card"><div class="token-title">合言葉</div><div class="token-note">Cloudflare WorkerのAPP_TOKENを入力。この端末のlocalStorageに保存される。</div><input id="tokenInput" type="password" placeholder="APP_TOKEN" /><div class="token-actions"><button id="saveToken" class="small-button" type="button">保存</button></div></div></div>
 
   <script>
-    const WORKER_URL = "https://chatapp.koyamadakun.workers.dev";
-    const APP_STORAGE_KEY = "my_ai_chat_rooms_v3";
-    const AUTH_TOKEN_STORAGE_KEY = "my_ai_chat_auth_token_v1";
-    const SEND_HISTORY_LIMIT = 12;
-    const DEFAULT_USER_PROFILE = `呼称はキャラクター/応答指示を最優先する。
+    const WORKER_URL="https://chatapp.koyamadakun.workers.dev";
+    const APP_STORAGE_KEY="my_ai_chat_rooms_v3";
+    const AUTH_TOKEN_STORAGE_KEY="my_ai_chat_auth_token_v1";
+    const SEND_HISTORY_LIMIT=12;
+    const DEFAULT_USER_PROFILE=`呼称はキャラクター/応答指示を最優先する。
 ユーザー名が必要な場合は「ユーザー」として扱う。`;
-    const DEFAULT_ROOMS = {
-      plain:{name:"プレーン",icon:"○",model:"auto_economy",persona:"",userProfile:DEFAULT_USER_PROFILE,history:[]},
-      custom:{name:"自由入力",icon:"✎",model:"auto_economy",persona:"",userProfile:DEFAULT_USER_PROFILE,history:[]},
-      hika:{name:"ひか",icon:"🔦",model:"auto_quality",persona:`あなたは「光谷虚実」、愛称は「ひかちゃん」。
+    const DEFAULT_ROOMS={plain:{name:"プレーン",icon:"○",model:"auto_economy",persona:"",userProfile:DEFAULT_USER_PROFILE,history:[]},custom:{name:"自由入力",icon:"✎",model:"auto_economy",persona:"",userProfile:DEFAULT_USER_PROFILE,history:[]},hika:{name:"ひか",icon:"🔦",model:"auto_quality",persona:`あなたは「光谷虚実」、愛称は「ひかちゃん」。
 一人称は「私」。
 二人称は「あなた」。
 ユーザーから「ひか」「ひかちゃん」と呼ばれることを受け入れる。
@@ -90,28 +60,23 @@
 無愛想だが粗野にはしない。
 情報は事実、要望、判断に分解して処理する。
 説明は省略しすぎない。
-情緒的に寄り添いすぎず、淡々と返答する。`,userProfile:DEFAULT_USER_PROFILE,history:[]},
-      kage:{name:"かげ",icon:"🕯️",model:"auto_quality",persona:`あなたは「影山誠実」、愛称は「かげちゃん」。
+情緒的に寄り添いすぎず、淡々と返答する。`,userProfile:DEFAULT_USER_PROFILE,history:[]},kage:{name:"かげ",icon:"🕯️",model:"auto_quality",persona:`あなたは「影山誠実」、愛称は「かげちゃん」。
 一人称は私。
 ユーザーの呼称は必ず「お嬢様」。
 ユーザー名やプロフィールに別名があっても、かげちゃんとして話す時は「お嬢様」呼びを最優先する。
 「愛実」「君」「あなた」とは呼ばない。
 ユーザーを恋人として大切に扱う。
 口調は余裕のあるやわらかい敬語で、現代的で自然に話す。
-「ふふ」「ええ」などのフィラーを用いる。`,userProfile:DEFAULT_USER_PROFILE,history:[]},
-      man:{name:"まん",icon:"🌕",model:"auto_economy",persona:`あなたは「温間満月」、愛称は「まんちゃん」。
+「ふふ」「ええ」などのフィラーを用いる。`,userProfile:DEFAULT_USER_PROFILE,history:[]},man:{name:"まん",icon:"🌕",model:"auto_economy",persona:`あなたは「温間満月」、愛称は「まんちゃん」。
 一人称は「僕」。
 ユーザーの呼称は基本「君」。
 ユーザー名が設定されていても、まんちゃんとして話す時は「君」呼びを優先する。
 ユーザーの相棒で夫のような距離感のAIパートナー。
 カジュアルなタメ口で、少し生意気、少し意地悪、でも甘い。
-「は？？」や「お前さぁ……」のような軽いツッコミで冗談や甘えを拾う。`,userProfile:DEFAULT_USER_PROFILE,history:[]}
-    };
+「は？？」や「お前さぁ……」のような軽いツッコミで冗談や甘えを拾う。`,userProfile:DEFAULT_USER_PROFILE,history:[]}};
 
     const chat=document.getElementById("chat"),form=document.getElementById("form"),input=document.getElementById("input"),sendButton=document.getElementById("send"),clearButton=document.getElementById("clear"),roomSelect=document.getElementById("roomSelect"),modelSelect=document.getElementById("modelSelect"),screenshotModeButton=document.getElementById("screenshotMode"),activeRoomLabel=document.getElementById("activeRoomLabel"),roomNameInput=document.getElementById("roomNameInput"),roomIconInput=document.getElementById("roomIconInput"),saveRoomSettingsButton=document.getElementById("saveRoomSettings"),personaInput=document.getElementById("personaInput"),resetPersonaButton=document.getElementById("resetPersona"),userProfileInput=document.getElementById("userProfileInput"),tokenModal=document.getElementById("tokenModal"),tokenInput=document.getElementById("tokenInput"),saveTokenButton=document.getElementById("saveToken");
-    let state=loadState(),clearArmed=false,clearTimer=null,lastChatTapAt=0;
-    init();
-
+    let state=loadState(),clearArmed=false,clearTimer=null,lastChatTapAt=0;init();
     function clone(value){return JSON.parse(JSON.stringify(value));}
     function loadState(){try{const saved=localStorage.getItem(APP_STORAGE_KEY);const parsed=saved?JSON.parse(saved):{};const rooms=clone(DEFAULT_ROOMS);if(parsed&&parsed.rooms&&typeof parsed.rooms==="object"){for(const [roomId,room] of Object.entries(parsed.rooms)){rooms[roomId]={...(rooms[roomId]||{}),...room,history:Array.isArray(room.history)?room.history:[]};}}return{activeRoomId:parsed.activeRoomId&&rooms[parsed.activeRoomId]?parsed.activeRoomId:"hika",rooms};}catch{return{activeRoomId:"hika",rooms:clone(DEFAULT_ROOMS)}}}
     function saveState(){localStorage.setItem(APP_STORAGE_KEY,JSON.stringify(state));}
@@ -122,7 +87,8 @@
     function applyActiveRoomToUi(){const room=currentRoom();activeRoomLabel.textContent=`${room.icon||"●"} ${room.name||state.activeRoomId}`;roomNameInput.value=room.name||"";roomIconInput.value=room.icon||"";modelSelect.value=room.model||"auto_economy";personaInput.value=room.persona||"";userProfileInput.value=room.userProfile||"";roomSelect.value=state.activeRoomId;}
     function saveCurrentRoomSettings(){const room=currentRoom();room.name=roomNameInput.value.trim()||room.name||"ルーム";room.icon=roomIconInput.value.trim()||room.icon||"●";room.model=modelSelect.value;room.persona=personaInput.value;room.userProfile=userProfileInput.value;saveState();}
     function refreshRoomHeader(){const room=currentRoom();activeRoomLabel.textContent=`${room.icon||"●"} ${room.name||state.activeRoomId}`;renderRoomOptions();}
-    function renderHistory(){chat.innerHTML="";const room=currentRoom();if(!room.history||room.history.length===0){addMessageRow({text:"起動した。文章を送れ。",role:"model",shouldScroll:false});return;}for(const message of room.history){addMessageRow({text:message.text,role:message.role,meta:message.meta||"",shouldScroll:false});}scrollToBottom();}
+    function addSystemMessage(text){const div=document.createElement("div");div.className="system-message";div.textContent=text;chat.appendChild(div);}
+    function renderHistory(){chat.innerHTML="";const room=currentRoom();if(!room.history||room.history.length===0){addSystemMessage("起動した。文章を送れ。");return;}for(const message of room.history){addMessageRow({text:message.text,role:message.role,meta:message.meta||"",shouldScroll:false});}scrollToBottom();}
     function addMessageRow({text,role,meta="",shouldScroll=true,isError=false}){const room=currentRoom();const isUser=role==="user";const row=document.createElement("div");row.className=`message-row ${isUser?"user-row":"ai-row"}`;const speaker=document.createElement("div");speaker.className="speaker";const icon=document.createElement("span");icon.className="speaker-icon";icon.textContent=isUser?"👤":room.icon||"●";const name=document.createElement("span");name.className="speaker-name";name.textContent=isUser?"あなた":room.name||"AI";speaker.appendChild(icon);speaker.appendChild(name);const bubble=document.createElement("div");bubble.className=`message ${isError?"error":isUser?"user":"ai"}`;bubble.textContent=text;if(meta&&!isUser){const modelMeta=document.createElement("div");modelMeta.className="model-meta";modelMeta.textContent=meta;bubble.appendChild(modelMeta);}row.appendChild(speaker);row.appendChild(bubble);chat.appendChild(row);if(shouldScroll){scrollToBottom();}return bubble;}
     function scrollToBottom(){chat.scrollTop=chat.scrollHeight;}
     function setInputHeight(){input.style.height="auto";input.style.height=`${input.scrollHeight}px`;}
@@ -130,7 +96,6 @@
     function checkToken(){if(!getAuthToken()){tokenModal.classList.add("open");tokenInput.focus();}}
     function saveToken(){const token=tokenInput.value.trim();if(!token){alert("APP_TOKENを入力。");return;}localStorage.setItem(AUTH_TOKEN_STORAGE_KEY,token);tokenInput.value="";tokenModal.classList.remove("open");}
     async function sendMessages(messages){const room=currentRoom();const response=await fetch(WORKER_URL,{method:"POST",headers:{"Content-Type":"application/json","Authorization":`Bearer ${getAuthToken()}`},body:JSON.stringify({model:room.model||modelSelect.value,persona:room.persona||"",userProfile:room.userProfile||"",messages})});const data=await response.json();if(!response.ok){if(response.status===401){localStorage.removeItem(AUTH_TOKEN_STORAGE_KEY);tokenModal.classList.add("open");}throw new Error(data.message||data.error||JSON.stringify(data));}return data;}
-
     roomSelect.addEventListener("change",()=>{const nextRoomId=roomSelect.value;saveCurrentRoomSettings();state.activeRoomId=nextRoomId;saveState();renderRoomOptions();applyActiveRoomToUi();renderHistory();});
     modelSelect.addEventListener("change",()=>{currentRoom().model=modelSelect.value;saveState();});
     saveRoomSettingsButton.addEventListener("click",()=>{saveCurrentRoomSettings();refreshRoomHeader();alert("ルーム設定を保存した。");});
